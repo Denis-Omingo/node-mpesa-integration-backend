@@ -55,7 +55,7 @@ async function getAccessToken() {
 
 router.post('/api/stkpush', (req, res) => {
   let phoneNumber = req.body.phone;
-  const accountNumber = req.body.accountNumber;
+  // const accountNumber = req.body.accountNumber;
   const amount = req.body.amount;
 
   if (phoneNumber.startsWith("0")) {
@@ -92,7 +92,7 @@ router.post('/api/stkpush', (req, res) => {
             PartyB: process.env.STK_BUSINESS_SHORT_CODE,
             PhoneNumber: phoneNumber,
             CallBackURL: `${process.env.CALLBACK_URL}/callback`,
-            AccountReference: accountNumber,
+            AccountReference: "589565",
             TransactionDesc: "Mpesa Daraja API stk push test",
           },
           {
