@@ -21,7 +21,7 @@ const fs = require("fs");
 require('dotenv').config();
 
 
-const port = process.env.PORT;
+const port = process.env.PORT || 5000;
 const hostname = "localhost";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -222,6 +222,6 @@ app.get("/b2curlrequest", (req, res) => {
     .catch(console.log);
 });
 
-server.listen(port, hostname, () => {
+server.listen(port,'0.0.0.0', hostname, () => {
   console.log(`Server running at http://${hostname}:${port}/`);
 });
