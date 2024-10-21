@@ -25,7 +25,14 @@ const port = process.env.PORT || 5000;
 const hostname = "localhost";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(cors());
+const allowedOrigins = ['https://mern-m-pesa-integration-app.onrender.com'];
+
+app.use(cors({
+  origin: allowedOrigins, // Allow only specific origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Specify allowed methods
+  credentials: true // Allow credentials if needed (cookies, authorization headers, etc.)
+}));
+
 app.use('/', apiRouter);
 
 const server = http.createServer(app);
