@@ -91,7 +91,7 @@ router.post('/api/stkpush', (req, res) => {
             PartyA: phoneNumber,
             PartyB: process.env.STK_BUSINESS_SHORT_CODE,
             PhoneNumber: phoneNumber,
-            CallBackURL: "https://a381-102-209-78-66.ngrok-free.app/api/callback",
+            CallBackURL:  `${process.env.CALLBACK_URL}/api/stkpush`,
             AccountReference: accountNumber,
             TransactionDesc: "MPESA API DEMO PROJECT",
           },
